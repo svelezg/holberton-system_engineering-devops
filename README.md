@@ -1,27 +1,28 @@
-# holberton-system_engineering-devops
+2. Shell#
+## I/O Redirections and filters ##
 
-Learning Shell basics
+* README.md
 
-README.md
-
-0x00-shell_basics
-
-1-listit
-2-bring_me_hom
-3-listfiles
-4-listmorefiles
-5-listfilesdigitonly
-6-firstdirectory
-7-movethatfile
-8-firstdelete
-9-firstdirdeletion
-10-back
-11-lists
-12-file_type
-13-symbolic_link
-14-copy_html
-15-lets_move
-16-clean_emacs
-17-tree
-18-commas 
-
+* 0-hello_world
+* 1-confused_smiley
+* 2-hellofile
+* 3-twofiles
+* 4-lastlines
+* 5-firstlines
+* 6-third_line
+* 7-file
+* 8-cwd_state
+* 9-duplicate_last_line
+* 10-no_more_js
+* 11-directories
+* 12-newest_files
+* 13-unique
+* 14-findthatword
+* 15-countthatword
+* 16-whatsnext
+* 17-hidethisword
+* 18-letteronly
+* 19-AZ
+* 20-hiago
+* 21-reverse
+* 22-users_and_homes
