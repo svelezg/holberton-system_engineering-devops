@@ -1,4 +1,4 @@
-#0x02. Shell#
+2. Shell#
 ## I/O Redirections and filters ##
 
 * README.md
