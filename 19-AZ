@@ -1,2 +1,0 @@
-#!/bin/bash
-cat | tr 'A' 'Z' | tr 'c' 'e' 
