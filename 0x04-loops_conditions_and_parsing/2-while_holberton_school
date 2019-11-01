@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+text='Holberton School'
+i="0"
+ while (("$i"<10))
+    do
+       echo "$text"
+       i=$i+1
+ done

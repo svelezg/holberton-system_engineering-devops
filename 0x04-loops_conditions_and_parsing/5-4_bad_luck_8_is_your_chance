@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+# but for the 9th iteration, displays Holberton School and then Hi on a new line.
+text='Holberton School'
+i="0"
+ while (("$i"<10))
+    do
+       if [[ "$i" -eq "3" ]]; then
+         echo "bad luck"
+       elif [[ "$i" -eq "7" ]]; then
+         echo "good luck"
+       else
+       echo "$text"; fi
+       i=$(("$i" + "1"))
+ done
