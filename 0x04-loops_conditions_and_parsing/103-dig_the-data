@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script Let's parse Apache logs.
+
+awk '{FS=" "; print $1,$9}' apache-access.log | sort | uniq -c | sort -gr
