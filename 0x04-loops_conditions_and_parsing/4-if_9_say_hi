@@ -7,7 +7,7 @@ i="0"
     do
        if [[ "$i" -eq "9" ]]
        then
-         echo "hi"; fi
+         echo "Hi"; fi
        echo "$text"
        i=$(("$i" + "1"))
  done
