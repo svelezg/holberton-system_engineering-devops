@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
 # but for the 9th iteration, displays Holberton School and then Hi on a new line.
-text='Holberton School'
-i="0"
- while (("$i"<10))
+i="1"
+ while [ "$i" -le 10 ]
     do
-       if [[ "$i" -eq "9" ]]
-       then
+       echo "Holberton School"
+       if [[ "$i" -eq "9" ]]; then
          echo "Hi"; fi
-       echo "$text"
        i=$(("$i" + "1"))
  done
