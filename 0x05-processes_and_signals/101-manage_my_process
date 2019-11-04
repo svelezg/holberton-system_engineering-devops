@@ -9,7 +9,7 @@ start ()
 stop ()
 {
   kill "$(cat /var/run/my_process.pid)"
-  sudo rm /var/run/my_process.pid
+  rm /var/run/my_process.pid
 }
 
 if [[ "$1" == "start" ]]; then
