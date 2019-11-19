@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Bash script that configures localhost and facebook
+HOSTNAME="localhost"
+A_IP=127.0.0.1 
+B_IP=127.0.0.2
+LINE="$B_IP\t$HOSTNAME"
+CATCH_A=$(grep "$HOSTNAME" /etc/hosts | grep -c "$A_IP")
+CATCH_B=$(grep "$HOSTNAME" /etc/hosts | grep -c "$B_IP")
+
+if [ "$CATCH_A" -gt 0 ]; then
+    sed -i "s/$A_IP/$B_IP/g" /etc/hosts
+elif [ "$CATCH_B" -gt 0 ]; then
+    sed -i "s/$B_IP/$A_IP/g" /etc/hosts	
+else
+    echo -e "$LINE" >> /etc/hosts;
+fi
+
+HOSTNAME="facebook.com"
+A_IP=157.240.11.35
+B_IP=8.8.8.8
+LINE="$B_IP\t$HOSTNAME"
+CATCH_A=$(grep "$HOSTNAME" /etc/hosts | grep -c "$A_IP")
+CATCH_B=$(grep "$HOSTNAME" /etc/hosts | grep -c "$B_IP")
+
+if [ "$CATCH_A" -gt 0 ]; then
+    sed -i "s/$A_IP/$B_IP/g" /etc/hosts
+elif [ "$CATCH_B" -gt 0 ]; then
+    sed -i "s/$B_IP/$A_IP/g" /etc/hosts
+else
+    echo -e "$LINE" >> /etc/hosts;
+fi
