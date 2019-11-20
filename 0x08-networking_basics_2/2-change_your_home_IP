@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 # Bash script that configures localhost and facebook
-A_IP=127.0.0.1 
-B_IP=127.0.0.2
 
-sed -i "s/$A_IP/$B_IP/g" /etc/hosts
+sed -i "s/127.0.0.1/127.0.0.2/g" /etc/hosts
 
 HOSTNAME="facebook.com"
 A_IP=157.240.11.35
