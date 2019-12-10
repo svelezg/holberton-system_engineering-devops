@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# configures a new Ubuntu machine
+# Install nginx on your web-01 server
+apt-get -y update
+apt-get -y install nginx
+# Nginx should be listening on port 80
+# When querying Nginx at its root / with a GET request (requesting a page) using curl,
+#  it must return a page that contains the string Holberton School
+echo "Holberton School" | tee /var/www/html/index.html
+service nginx start
