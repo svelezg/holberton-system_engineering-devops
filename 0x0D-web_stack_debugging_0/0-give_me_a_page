@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Restarts an Apache server in a container
+# 0. Give me a page! 
+service apache2 start
