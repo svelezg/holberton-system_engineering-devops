@@ -7,9 +7,9 @@ apt-get -y install nginx
 echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 # 2 redirection must be a “301 Moved Permanently”
 HOME="location /redirect_me {\\n\\t\\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\\n\\t}\\n"
-sudo sed -i "37i\ $HOME" /etc/nginx/sites-available/default
+sudo sed -i "37i\\ $HOME" /etc/nginx/sites-available/default
 # 3 HTTP 404 error code page that contains the string Ceci n'est pas une page
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
-CUSTOM="error_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}\n"
-sudo sed -i "37i\ $CUSTOM" /etc/nginx/sites-available/default
+CUSTOM="error_page 404 /custom_404.html;\\n\\tlocation = /custom_404.html {\\n\\t\\troot /var/www/html;\\n\\t\\tinternal;\\n\\t}\\n"
+sudo sed -i "37i\\ $CUSTOM" /etc/nginx/sites-available/default
 service nginx restart
