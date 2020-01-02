@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# HAproxy configutation Script
+
+# Install HAproxi
+apt-get -y update
+apt-get -y install haproxy 
+
+# Enable HAproxy
+sed -i "s/ENABLED=0/ENABLED=1/g" /etc/default/haproxy
+
+# Distribute requests using a roundrobin algorithm
+sed -i "\$ a\listen 887-lb-01\n\tbind *:80\n\tmode http\n\tstats enable\n\tbalance roundrobin\n\tserver 887-web-01 35.243.220.111:80 check\n\tserver 887-web-02 35.190.130.57:80 check" /etc/haproxy/haproxy.cfg
+
+# Start service
+service haproxy start
