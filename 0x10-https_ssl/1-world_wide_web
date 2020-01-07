@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Configure your domain zone so that the subdomain www points to your load-balancer IP (lb-01).
+
+
+#First argument domain: type: string / what: domain name to audit / mandatory: yes
+
+
+#Second argument subdomain: type: string / what: specific subdomain to audit / mandatory: no
+
+#Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+
+#When passing domain and subdomain parameters, display information for the specified subdomain
+
+my_func () {
+if [ -z "$2" ]                           # Is parameter #1 zero length?
+   then
+      dig "www.$1"  | awk 'f;/ANSWER SECTION:/{f=1}' | head -n 1 | awk '{print "The subdomain www is a " $4 " record and points to " $5}'
+      dig "lb-01.$1"  | awk 'f;/ANSWER SECTION:/{f=1}' | head -n 1 | awk '{print "The subdomain lb-01 is a " $4 " record and points to " $5}'
+      dig "web-01.$1"  | awk 'f;/ANSWER SECTION:/{f=1}' | head -n 1 | awk '{print "The subdomain web-01 is a " $4 " record and points to " $5}'
+      dig "web-02.$1"  | awk 'f;/ANSWER SECTION:/{f=1}' | head -n 1 | awk '{print "The subdomain web-02 is a " $4 " record and points to " $5}'
+   else
+     #When only the parameter domain is provided, display information for its subdomains www,
+     # lb-01, web-01 and web-02 - in this specific order
+     printf "The subdomain %s is a " "$2"
+     dig "$2.$1"  | awk 'f;/ANSWER SECTION:/{f=1}' | head -n 1 | awk '{print $4 " record and points to " $5}'
+   fi
+}
+
+my_func "$1" "$2"
+
