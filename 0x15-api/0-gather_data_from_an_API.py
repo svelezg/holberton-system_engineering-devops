@@ -13,7 +13,7 @@ if __name__ == "__main__":
                               "?userId=" + sys.argv[1])
     all_task = json.loads(response_2.text)
     task_done = [task for task in all_task if task.get('completed')]
-    
+
     print("Employee {} is done with tasks({}/{}):".
           format(employee_name, len(task_done), len(all_task)))
     for task in task_done:
