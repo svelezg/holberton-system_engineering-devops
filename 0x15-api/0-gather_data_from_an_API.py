@@ -13,24 +13,16 @@ if __name__ == "__main__":
 
     url1 = base_url + 'users/' + employee_id
     response_1 = requests.get(url1, 'name')
+    users_dictionary = json.loads(response_1.text)
+    employee_name = users_dictionary.get('name')
 
-    # name of the employee
-    employee_name = response_1.json().get('name')
-
-    # total number of tasks, which is the sum of completed and
-    # non-completed tasks
     url2 = base_url + 'todos/' + "?userId=" + sys.argv[1]
     response_2 = requests.get(url2)
-    task_done = len([task for task in response_2.json()
-                     if task.get('completed') is True])
-    task_total = len([task for task in response_2.json()])
+    all_task = json.loads(response_2.text)
+    task_done = [task for task in all_task if task.get('completed')]
 
     print("Employee {} is done with tasks({}/{}):".
-          format(employee_name, task_done, task_total))
+          format(employee_name, len(task_done), len(all_task)))
 
-    # Second and N next lines display the title of completed tasks:
-    # Tab TASK_TITLE (with 1 tabulation + 1 space before)
-    for task in response_2.json():
-        if task.get('userId') is int(employee_id):
-            if task.get('completed') is True:
-                print('\t {}'.format(task.get('title')))
+    for task in task_done:
+        print('\t {}'.format(task.get('title')))
