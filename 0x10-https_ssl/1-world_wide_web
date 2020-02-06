@@ -3,15 +3,12 @@
 
 
 #First argument domain: type: string / what: domain name to audit / mandatory: yes
-
-
 #Second argument subdomain: type: string / what: specific subdomain to audit / mandatory: no
 
 #Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
 
-#When passing domain and subdomain parameters, display information for the specified subdomain
-
 my_func () {
+#When passing domain and subdomain parameters, display information for the specified subdomain
 if [ -z "$2" ]                           # Is parameter #1 zero length?
    then
       dig "www.$1"  | awk 'f;/ANSWER SECTION:/{f=1}' | head -n 1 | awk '{print "The subdomain www is a " $4 " record and points to " $5}'
