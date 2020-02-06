@@ -31,7 +31,7 @@ def count_words(subreddit, word_list, hot_list_titles=[], after='null'):
 
     if after is None:
         to_print_tuples = []
-        for word in set(x.lower() for x in word_list):
+        for word in word_list:
             count = 0
             for title in hot_list_titles:
                 split_title = title.split()
