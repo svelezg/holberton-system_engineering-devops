@@ -31,12 +31,12 @@ def count_words(subreddit, word_list, hot_list_titles=[], after='null'):
 
     if after is None:
         to_print_tuples = []
-        for word in word_list:
+        for word in set(x.lower() for x in word_list):
             count = 0
             for title in hot_list_titles:
                 split_title = title.split()
                 new_split = [element.lower() for element in split_title]
-                count = count + new_split.count(word.lower())
+                count = count + new_split.count(word)
             if count != 0:
                 to_print_tuples.append((word, count))
         for elem in sorted(to_print_tuples, key=lambda x: (-x[1], x[0])):
