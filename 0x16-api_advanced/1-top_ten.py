@@ -17,9 +17,10 @@ def top_ten(subreddit):
                             allow_redirects=False)
 
     if response.status_code != 200:
-        print('None')
+        print(None)
     else:
         hot_list_of_dicts = response.json().get("data").get("children")
-        titles = [reddit.get("data").get("title") for reddit in hot_list_of_dicts]
+        titles = [reddit.get("data").get("title") for
+                  reddit in hot_list_of_dicts]
         for title in titles:
             print(title)
