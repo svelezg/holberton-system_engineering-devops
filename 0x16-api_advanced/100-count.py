@@ -31,18 +31,17 @@ def count_words(subreddit, word_list, hot_list_titles=[], after='null'):
 
     # after = None
     if after is None:
-        to_print_dict = {}
+        to_print_dict = []
         for word in word_list:
             count = 0
             for title in hot_list_titles:
                 split_title = title.split()
-                count = count + split_title.count(word)
+                new_split = [element.lower() for element in split_title]
+                count = count + new_split.count(word)
             if count != 0:
-                to_print_dict[word] = count
-        for key, value in sorted(to_print_dict.items(),
-                                 key=lambda x: (x[1], x[0]),
-                                 reverse=True):
-            print("{}: {}".format(key, value))
+                to_print_dict.append((word, count))
+        for elem in sorted(to_print_dict, key=lambda x: (-x[1], x[0])):
+            print("{}: {}".format(elem[0], elem[1]))
 
     else:
         return count_words(subreddit, word_list,
