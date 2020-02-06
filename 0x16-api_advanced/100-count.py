@@ -36,7 +36,7 @@ def count_words(subreddit, word_list, hot_list_titles=[], after='null'):
             for title in hot_list_titles:
                 split_title = title.split()
                 new_split = [element.lower() for element in split_title]
-                count = count + new_split.count(word)
+                count = count + new_split.count(word.lower())
             if count != 0:
                 to_print_tuples.append((word, count))
         for elem in sorted(to_print_tuples, key=lambda x: (-x[1], x[0])):
