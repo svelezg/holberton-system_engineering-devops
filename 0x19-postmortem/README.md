@@ -1,6 +1,6 @@
 -- Postmortem example --
 # memonto.co Postmortem (incident #001)
-![alt text](https://github.com/svelezg/holberton-system_engineering-devops/blob/master/0x19-postmortem/solve.jpg)
+![alt text](https://github.com/svelezg/holberton-system_engineering-devops/blob/master/0x19-postmortem/Solve.jpeg)
 
 ## Date
 
