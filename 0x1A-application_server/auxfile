@@ -1,0 +1,12 @@
+ssh ubuntu@35.243.220.111
+
+HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db gunicorn3 --bind 0.0.0.0:5002 api.v1.app:app
+
+HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db gunicorn3 --bind 0.0.0.0:5003 web_dynamic.2-hbnb:app
+
+sudo nano /etc/nginx/sites-available/default 
+sudo service nginx restart
+
+root /home/ubuntu/AirBnB_clone_v4/web_dynamic;
+
+http://35.243.220.111:5003/2-hbnb
