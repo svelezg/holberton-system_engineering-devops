@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# No service interruption
+# Reload Gunicorn in a graceful way.
+pkill -HUP gunicorn
