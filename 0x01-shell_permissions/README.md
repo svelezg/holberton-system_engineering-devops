@@ -204,8 +204,6 @@ Write a script that prints the effective userid of the current user.
 *   File: `1-who_am_i`
 
 
-
-
   
 
 #### 2\. Groups 
