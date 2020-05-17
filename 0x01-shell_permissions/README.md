@@ -187,9 +187,6 @@ Create a script that changes your user ID to `betty`.
 
 
 
-
-  
-
 #### 1\. Who am I 
 
 
